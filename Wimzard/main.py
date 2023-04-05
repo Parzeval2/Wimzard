@@ -3,19 +3,21 @@ import pygame
 from Player import Player
 from Constants import *
 from Enemy import Enemy
+from random import randint
+import time
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 enemy = Enemy("spider.png")
 player = Player("wizard.png")
-pygame.init()
+
 main = True
 
-#Distance player moves per press
-steps = 10
-##
+enemy_sprites = pygame.sprite.Group()
+enemy_sprites.add(enemy)
 
 
 while main:
+    pygame.init()
 
     #get player input
     keys = pygame.key.get_pressed()
@@ -30,12 +32,14 @@ while main:
 
     #make background
     screen.fill(WHITE)
-
-    #spawn player sprite
+    #update sprites
+    enemy_sprites.update()
     screen.blit(player.image, player.getPosition())
+    #draw sprites on the screen
+    enemy_sprites.draw(screen)
     #load screen
     pygame.display.flip()
 
-    #start the enemy spawning and moving
+
 
 

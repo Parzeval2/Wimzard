@@ -14,6 +14,9 @@ from random import randint, choice
 WIDTH = 1200
 HEIGHT = 1000
 
+MAX_X = WIDTH
+MAX_Y = HEIGHT
+
 # constants for colors
 RED = [0xe3, 0x1b, 0x23]
 BLUE = [0x00,0x2F,0x8B]
