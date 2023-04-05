@@ -2,9 +2,10 @@ import sys
 import pygame
 from Player import Player
 from Constants import *
+from Enemy import Enemy
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-
+enemy = Enemy("spider.png")
 player = Player("wizard.png")
 pygame.init()
 main = True
@@ -24,7 +25,7 @@ while main:
             pygame.quit()
             sys.exit()
 
-        #player movement check
+    #player movement check
     player.update(keys)
 
     #make background
@@ -34,3 +35,7 @@ while main:
     screen.blit(player.image, player.getPosition())
     #load screen
     pygame.display.flip()
+
+    #start the enemy spawning and moving
+
+
