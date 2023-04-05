@@ -1,12 +1,11 @@
 import sys
 import pygame
 from Player import Player
+from Constants import *
 
-width = 800
-height = 600
-screen = pygame.display.set_mode((width, height))
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-player = Player()
+player = Player("wizard.png")
 pygame.init()
 main = True
 
@@ -16,16 +15,22 @@ steps = 10
 
 
 while main:
+
+    #get player input
+    keys = pygame.key.get_pressed()
+    #player exits game
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-            main = False
 
+        #player movement check
+    player.update(keys)
 
-        if event.type == pygame.KEYDOWN:
-            if event.key in [pygame.K_LEFT, pygame.K_a]:
-                player.control(-steps,0)
-            if event.key in [pygame.K_RIGHT, pygame.K_d]:
-                player.control(steps,0)
+    #make background
+    screen.fill(WHITE)
 
+    #spawn player sprite
+    screen.blit(player.image, player.getPosition())
+    #load screen
+    pygame.display.flip()
