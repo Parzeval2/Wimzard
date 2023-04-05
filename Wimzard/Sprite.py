@@ -24,8 +24,8 @@ class Sprite:
     @x.setter
     def x(self, x):
         # checks for x being larger than the max or smaller than 0
-        if x > MAX_X:
-            self._x = MAX_X
+        if x > MAX_X - 50:
+            self._x = MAX_X - 50
         elif x <= 0:
             self._x = 0
         else:

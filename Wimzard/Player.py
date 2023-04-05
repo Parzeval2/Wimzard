@@ -23,9 +23,5 @@ class Player(pygame.sprite.Sprite, Sprite):
             self.goLeft()
         if keypressed[pygame.K_RIGHT]:
             self.goRight()
-        # if keypressed[pygame.K_UP]:
-        #     self.goUp()
-        # if keypressed[pygame.K_DOWN]:
-        #     self.goDown()
         if keypressed[pygame.K_SPACE]:
             pass

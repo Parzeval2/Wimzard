@@ -33,10 +33,11 @@ while main:
     #make background
     screen.fill(WHITE)
     #update sprites
+    #enemy sprite
     enemy_sprites.update()
-    screen.blit(player.image, player.getPosition())
     #draw sprites on the screen
     enemy_sprites.draw(screen)
+    screen.blit(player.image, player.getPosition())
     #load screen
     pygame.display.flip()
 
