@@ -33,6 +33,9 @@ while main:
     #make background
     screen.fill(WHITE)
     #update sprites
+    if not enemy.alive:
+        enemy = Enemy("spider.png")
+        enemy_sprites.add(enemy)
     #enemy sprite
     enemy_sprites.update()
     #draw sprites on the screen

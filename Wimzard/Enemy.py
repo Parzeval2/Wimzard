@@ -37,13 +37,17 @@ class Enemy(pygame.sprite.Sprite, Sprite):
         if self.rect.top < 0:
             self.rect.top = 0
         #is enemy on screen?
-        if self.rect.right < 0:
-            self.is_visible = False
+        if self.rect.x > WIDTH:
+            self.alive = False
 
     def update(self):
         # check if it's time to move the enemy
-       if time.monotonic() >= self.next_move_time:
-            self.randomMovement()
-            self.next_move_time = time.monotonic() + 0.3  # move every second
+        if self.alive:
+            if time.monotonic() >= self.next_move_time:
+                self.randomMovement()
+                self.next_move_time = time.monotonic() + 0.3  # move every second
+        else:
+            self.kill()
+            self.alive = False
 
 
