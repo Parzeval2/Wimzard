@@ -14,7 +14,10 @@ main = True
 enemy_sprites = pygame.sprite.Group()
 enemy_sprites.add(enemy)
 
-projectile_group = pygame.sprite.GroupSingle()
+projectile_group = pygame.sprite.Group()
+
+MAX_PROJECTILES = 1
+projectile_count = 0
 while main:
     pygame.init()
 
@@ -28,10 +31,30 @@ while main:
 
     # projectile handling
     if keys[pygame.K_SPACE]:
-        projectile = Projectile("Fireball.png")
-        projectile.rect.midbottom = player.rect.midtop
-        projectile_group.add(projectile)
+        if projectile_count < MAX_PROJECTILES:
+            projectile = Projectile("Fireball.png")
+            projectile.rect.x = player.x
+            projectile.rect.y = player.y
+            projectile_group.add(projectile)
+            projectile_count += 1
+        else:
+            pass
 
+    #collision handling for the projectile and enemy group
+    for projectile in projectile_group:
+        for enemy in enemy_sprites:
+            if projectile.rect.colliderect(enemy.rect):
+                print("enemy hit")
+                projectile.kill()
+                enemy.alive = False
+                enemy.kill()
+                projectile_count -= 1
+    #checking for the projectile being off screen
+    for projectile in projectile_group:
+        if projectile.rect.y < 0:
+            projectile.kill()
+            projectile_group.remove(projectile)
+            projectile_count -= 1
 
     # player movement check
     player.update(keys)
@@ -45,7 +68,7 @@ while main:
     # enemy sprite
     enemy_sprites.update()
     #projectile sprites
-    projectile_group.update(enemy_sprites)
+    projectile_group.update()
 
     # draw sprites on the screen
     enemy_sprites.draw(screen)

@@ -13,9 +13,10 @@ class Enemy(pygame.sprite.Sprite, Sprite):
         self.x = 0
         self.y = 0
         self.image = pygame.image.load(img)
-        self.rect = self.image.get_rect()
         self.speed = 50
         self.image = pygame.transform.scale(self.image, (50, 50))
+        self.rect = self.image.get_rect()
+        #for if the spider is moving and alive
         self.next_move_time = time.monotonic()
         self.alive = True
 
