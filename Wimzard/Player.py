@@ -1,6 +1,7 @@
 import pygame.sprite
 from Constants import *
 from Sprite import Sprite
+from Projectile import Projectile
 
 
 class Player(pygame.sprite.Sprite, Sprite):
@@ -11,6 +12,7 @@ class Player(pygame.sprite.Sprite, Sprite):
         self.image = pygame.image.load(image)
         self.image = pygame.transform.scale(self.image, (50, 50))
         self.rect = self.image.get_rect()
+
 
     def control(self,x,y):
         self.x += x
@@ -23,5 +25,5 @@ class Player(pygame.sprite.Sprite, Sprite):
             self.goLeft()
         if keypressed[pygame.K_RIGHT]:
             self.goRight()
-        if keypressed[pygame.K_SPACE]:
-            pass
+
+
