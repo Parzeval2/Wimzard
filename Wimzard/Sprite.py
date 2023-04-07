@@ -1,4 +1,6 @@
 from Constants import *
+#basic sprite system from our old program
+#kind of obsolete after finding pygame methods
 class Sprite:
     def __init__(self):
         pass

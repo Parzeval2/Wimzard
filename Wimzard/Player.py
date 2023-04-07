@@ -13,12 +13,12 @@ class Player(pygame.sprite.Sprite, Sprite):
         self.image = pygame.transform.scale(self.image, (50, 50))
         self.rect = self.image.get_rect()
 
-
+#im not even sure if we use this method anywhere
     def control(self,x,y):
         self.x += x
         self.y += y
 
-
+# makes the player move left and right during the mainloop
     def update(self, keypressed):
         if keypressed[pygame.K_LEFT]:
             #if the pressed key is left execute the left function

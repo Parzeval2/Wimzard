@@ -48,6 +48,7 @@ class Enemy(pygame.sprite.Sprite, Sprite):
                 self.randomMovement()
                 self.next_move_time = time.monotonic() + 0.3  # move every second
         else:
+            #if the enemy is dead we just reset the entity basically
             self.kill()
             self.alive = False
 
