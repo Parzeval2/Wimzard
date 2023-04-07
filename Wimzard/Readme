@@ -1,0 +1,8 @@
+For this assignment i have introduced an arbitrary max projectile count
+It is currently set to 5 but to change it you cna just alter the variable in the main file
+
+TO play, shoot the spider with a fireball by pressing space
+You can only move by useing the left or right arrow or a and d
+
+Each time the spider reaches the end of the top half, you lose a life
+whenever you lose all three lives, the game ends and the window automatically closes.

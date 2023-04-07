@@ -17,11 +17,12 @@ enemy_sprites.add(enemy)
 #projectile sprit group
 projectile_group = pygame.sprite.Group()
 #for projectile handling
-MAX_PROJECTILES = 1
+MAX_PROJECTILES = 5
 projectile_count = 0
 # for the score and life system
 score = 0
 lives = 3
+################################
 while main:
 
     # get player input
